@@ -1,0 +1,50 @@
+﻿<form>
+    <div class="container mt-5">
+        <div class="card shadow bg-info mx-auto" style="width:50%">
+
+            <h1 class="text-center mb-4 mt-4">Log In</h1>
+
+            <div class="mb-3 col-6 ms-3">
+                <label for="exampleInputName1" class="form-label">User Name</label>
+                <input type="text" class="form-control" id="exampleInputName1">
+            </div>
+
+            <div class="mb-3 col-6 ms-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="ms-3 text-center mb-4 mt-3">
+                <button type="button" class="btn btn-primary">Log In</button>
+            </div>
+
+            <div class="container text-center mt-3 mb-2">
+                <a asp-area="" asp-controller="Home" asp-action="Password Reset">Reset your Password</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Font Awesome CDN for eye icon -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<!-- JavaScript to toggle password visibility -->
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#exampleInputPassword1');
+
+    togglePassword.addEventListener('click', function (e) {
+        // Toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        // Toggle the eye / eye-slash icon
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+</script>
